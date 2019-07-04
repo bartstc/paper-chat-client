@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "immutable": "^4.0.0-rc.12",
     "jwt-decode": "^2.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -10,8 +11,8 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "react-transition-group": "^4.2.1",
-    "slate": "^0.47.4",
-    "slate-react": "^0.22.4",
+    "slate": "^0.34.7",
+    "slate-react": "^0.13.4",
     "styled-components": "^4.3.2"
   },
   "scripts": {

@@ -366,11 +366,16 @@ ul {
 }
 
 .page {
-  height: 100vh;
+  height: 100%;
   position: fixed;
-  width: 100%;
+  /* width: 100%; */
   top: 0;
   transition: opacity 0.5s ease-in-out;
+  overflow-y: scroll;
+}
+
+.page::-webkit-scrollbar {
+  width: 0 !important;
 }
 
 .page-enter {
@@ -383,4 +388,8 @@ ul {
 
 .page-exit-active {
   opacity: 0;
+}
+
+strong {
+  font-weight: 700;
 }

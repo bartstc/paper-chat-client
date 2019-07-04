@@ -6,10 +6,12 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import './index.css';
 
 import Layout from './components/Layout/Layout';
+import Page from './components/Page/Page';
 import Home from './pages/Home/Home';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
-import Page from './components/Page/Page';
+import Editor from './pages/Editor/Editor';
+import Documents from './pages/Documents/Documents';
 
 const Index = () => {
   return (
@@ -50,6 +52,24 @@ const Index = () => {
                       render={routeProps => (
                         <Page>
                           <SignIn />
+                        </Page>
+                      )}
+                    />
+                    <Route
+                      exact
+                      path="/editor/:id"
+                      render={routeProps => (
+                        <Page>
+                          <Editor />
+                        </Page>
+                      )}
+                    />
+                    <Route
+                      exact
+                      path="/documents"
+                      render={routeProps => (
+                        <Page>
+                          <Documents />
                         </Page>
                       )}
                     />

@@ -13,12 +13,13 @@ const Layout = ({ children }) => {
   const onClose = () => setToggle(false);
 
   return (
-    <LayoutWrapper toggled={toggle}>
+    <LayoutWrapper>
       <SideDrawer onClick={onClose} toggled={toggle}>
         <Links>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/signin">Sign In</NavLink>
           <NavLink to="/signup">SignUp</NavLink>
+          <NavLink to="/documents">Documents</NavLink>
         </Links>
       </SideDrawer>
       <Header onToggle={onToggle} toggled={toggle} />

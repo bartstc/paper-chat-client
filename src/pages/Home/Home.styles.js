@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { device, accent } from '../../utils/styles';
 
 export const HomeWrapper = styled.div`
+  padding: 0 0.6em;
   padding-top: 3em;
   min-height: 80vh;
   max-width: 450px;

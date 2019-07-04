@@ -5,7 +5,7 @@ import bgImage from '../../assets/bg.png';
 export const ShowcaseWrapper = styled.section`
   min-width: 100vw;
   min-height: 100vh;
-  padding: 0 1em;
+  /* padding: 0 1em; */
   padding-top: 80px;
   position: relative;
 
