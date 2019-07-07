@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color, device } from '../../utils/styles';
+import { color, device, fontWeight } from '../../utils/styles';
 import { Link } from 'react-router-dom';
 
 export const LayoutWrapper = styled.div``;
@@ -29,6 +29,21 @@ export const NavLink = styled(Link)`
   line-height: 2rem;
   color: ${color.accent};
   font-size: 1.1rem;
+
+  @media ${device.tablet} {
+    font-size: 1.3rem;
+    line-height: 2.5rem;
+  }
+`;
+
+export const Logout = styled.button`
+  line-height: 2rem;
+  color: ${color.accent};
+  font-size: 1.1rem;
+  font-weight: ${fontWeight.bold};
+  background: none;
+  border: none;
+  cursor: pointer;
 
   @media ${device.tablet} {
     font-size: 1.3rem;

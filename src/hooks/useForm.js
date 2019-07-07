@@ -18,10 +18,15 @@ export const useForm = (callback, initState) => {
     setValues(values => ({ ...values, [e.target.name]: e.target.value }));
   };
 
+  const reset = () => {
+    setValues(initState);
+  };
+
   // // return piece of state and function: to handle change and submit
   return {
     handleChange,
     handleSubmit,
-    values,
+    reset,
+    values
   };
 };

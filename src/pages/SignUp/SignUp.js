@@ -5,10 +5,10 @@ import { FormWrapper } from './SignUp.styles';
 import Showcase from '../../components/Showcase/Showcase';
 import Form from './signUp/Form';
 
-const SignUp = () => (
+const SignUp = ({ history }) => (
   <Showcase imageUrl={signUpImage}>
     <FormWrapper>
-      <Form />
+      <Form history={history} />
     </FormWrapper>
   </Showcase>
 );
