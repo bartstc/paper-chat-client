@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Editor } from 'slate-react';
 import { Value } from 'slate';
+import { initValue } from '../../utils/slateInitValue';
 import {
   Code,
   Quote,
@@ -25,40 +26,28 @@ Ctrl + u
 
 const TextEditor = () => {
   const existingValue = JSON.parse(localStorage.getItem('text'));
-  const initialValue = Value.fromJSON(
-    existingValue || {
-      document: {
-        nodes: [
-          {
-            object: 'block',
-            type: 'paragraph',
-            nodes: [
-              {
-                object: 'text',
-                leaves: [
-                  {
-                    text: 'My first paragraph!'
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    }
-  );
+  const initialValue = Value.fromJSON(existingValue || initValue);
 
   const [value, setValue] = useState(initialValue);
   const [font, setFont] = useState('Lato');
 
-  // On change, update the app's React state with the new editor value.
+  const onAutoSave = useCallback(() => {
+    window.localStorage.setItem('text', JSON.stringify(value.toJSON()));
+  }, [value]);
+
+  useEffect(() => {
+    const autoSave = setInterval(() => {
+      onAutoSave();
+    }, 180000); // save every 3 minutes
+    return () => clearInterval(autoSave);
+  }, [onAutoSave]);
+
   const onChange = ({ value }) => {
     setValue(value);
   };
 
   const onSave = () => {
     window.localStorage.setItem('text', JSON.stringify(value.toJSON()));
-    console.log('saved');
   };
 
   const toggleFont = () => {
@@ -66,10 +55,10 @@ const TextEditor = () => {
     const index = fonts.findIndex(f => f === currentFont);
     if (index === fonts.length - 1) {
       setFont(fonts[0]);
-      // save font in db
+      // save font in db ?
     } else {
       setFont(fonts[index + 1]);
-      // save font in db
+      // save font in db ?
     }
   };
 
@@ -80,8 +69,8 @@ const TextEditor = () => {
 
     e.preventDefault();
 
-    /* Decide what to do based on the key code... */
-    /* When "b" is pressed, add a "bold" mark to the text and so one. */
+    // Decide what to do based on the key code...
+    // When "b" is pressed, add a "bold" mark to the text and so one.
     switch (e.key) {
       case 'b': {
         change.toggleMark('bold');
@@ -153,18 +142,18 @@ const TextEditor = () => {
   };
 
   const onMarkClick = (e, type) => {
-    /* disabling browser default behavior like page refresh, etc */
+    // disabling browser default behavior like page refresh, etc
     e.preventDefault();
 
-    /*
-			applying the formatting on the selected text
-			which the desired formatting
-		*/
+    // applying the formatting on the selected text
+    // which the desired formatting
     const change = value.change().toggleMark(type);
 
-    /* calling the  onChange method we declared */
+    // calling the  onChange method we declared
     onChange(change);
   };
+
+  console.log('Editor rerender');
 
   return (
     <Wrapper>

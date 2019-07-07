@@ -4,7 +4,7 @@ import { device, accent } from '../../../utils/styles';
 
 export const HeaderWrapper = styled.header`
   width: 100%;
-  height: 80px;
+  height: 60px;
   background: rgba(255, 255, 255, 0.6);
   background: #fff;
   display: flex;
@@ -13,6 +13,10 @@ export const HeaderWrapper = styled.header`
   padding: 0 1em;
   position: fixed;
   z-index: 10;
+
+  @media ${device.tablet} {
+    height: 80px;
+  }
 `;
 
 export const Logo = styled(Link)`

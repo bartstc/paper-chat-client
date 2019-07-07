@@ -1,42 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Wrapper,
   DocsHeader,
   Title,
   AddBtn,
-  DocsList,
-  DocItem,
-  DocTitle,
-  Category,
-  DeleteBtn,
-  Limiter,
-  Warning
+  Limiter
 } from './Documents.styles';
 
+import Modal from './documents/Modal';
+import DocumentsList from './documents/DocumentsList';
+
 const Documents = () => {
+  const [open, setOpen] = useState(false);
+
+  const onModalOpen = () => setOpen(true);
+  const onModalClose = () => setOpen(false);
+
   return (
     <Wrapper>
       <Limiter>
         <DocsHeader>
           <Title>Your documents:</Title>
-          <AddBtn>Add new</AddBtn>
+          <AddBtn onClick={onModalOpen}>Add new</AddBtn>
         </DocsHeader>
-        {/* <Warning>No documents added yet.</Warning> */}
-        <DocsList>
-          <DocItem>
-            <Category color="#cf3e00" />
-            <DocTitle to="/editor/1">Test title for document</DocTitle>
-            <DeleteBtn>X</DeleteBtn>
-          </DocItem>
-          <DocItem>
-            <Category color="#ede028" />
-            <DocTitle to="/editor/1">Test title for document</DocTitle>
-          </DocItem>
-          <DocItem>
-            <Category color="#4269f5" />
-            <DocTitle to="/editor/1">Test title for document</DocTitle>
-          </DocItem>
-        </DocsList>
+        <Modal show={open} closeModal={onModalClose} />
+        <DocumentsList />
       </Limiter>
     </Wrapper>
   );
