@@ -52,6 +52,8 @@ const AuthProvider = ({ children }) => {
       if (decoded.exp < currentTime) {
         // Logout user
         dispatch({ type: 'LOGOUT_USER' });
+        // Unset axios headers
+        setHeaders();
         // Redirect to signin
         window.location.href = '/signin';
       }

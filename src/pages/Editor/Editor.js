@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import axios from 'axios';
 import { Editor } from 'slate-react';
 import { Value } from 'slate';
-import { initValue } from '../../utils/slateInitValue';
 import {
   Code,
   Quote,
@@ -17,24 +17,25 @@ import SpinnerSm from '../../components/Spinner/SpinnerSm';
 
 const fonts = ['Lato', 'Poppins', 'Montserrat'];
 
-/* 
-Add info about shortcuts:
-autosave every 3 min
-Ctrl + s
-Ctrl + b
-Ctrl + i
-Ctrl + u
-*/
+const TextEditor = props => {
+  useEffect(() => {
+    const fetchDocument = async () => {
+      try {
+        const { data } = await axios.get(`/documents/${props.match.params.id}`);
+        const text = JSON.parse(data.text);
+        setValue(Value.fromJSON(text));
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchDocument();
+  }, []);
 
-const TextEditor = () => {
-  const existingValue = JSON.parse(localStorage.getItem('text'));
-  const initialValue = Value.fromJSON(existingValue || initValue);
-
-  const [value, setValue] = useState(initialValue);
+  const [value, setValue] = useState(null);
   const [font, setFont] = useState('Lato');
 
   const onAutoSave = useCallback(() => {
-    window.localStorage.setItem('text', JSON.stringify(value.toJSON()));
+    saveDocument();
   }, [value]);
 
   useEffect(() => {
@@ -48,8 +49,14 @@ const TextEditor = () => {
     setValue(value);
   };
 
-  const onSave = () => {
-    window.localStorage.setItem('text', JSON.stringify(value.toJSON()));
+  const saveDocument = async () => {
+    try {
+      await axios.patch(`/documents/${props.match.params.id}`, {
+        text: JSON.stringify(value.toJSON())
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const toggleFont = () => {
@@ -57,10 +64,8 @@ const TextEditor = () => {
     const index = fonts.findIndex(f => f === currentFont);
     if (index === fonts.length - 1) {
       setFont(fonts[0]);
-      // save font in db ?
     } else {
       setFont(fonts[index + 1]);
-      // save font in db ?
     }
   };
 
@@ -89,7 +94,7 @@ const TextEditor = () => {
       }
 
       case 's': {
-        onSave();
+        saveDocument();
         return true;
       }
 
@@ -155,27 +160,28 @@ const TextEditor = () => {
     onChange(change);
   };
 
-  console.log('Editor rerender');
-
   return (
     <Wrapper>
-      {/* <SpinnerSm /> */}
-      <Limiter>
-        <Toolbar
-          handleMarkClick={onMarkClick}
-          toggleFont={toggleFont}
-          font={font}
-          handleSave={onSave}
-        />
-        <EditorWrapper font={font}>
-          <Editor
-            value={value}
-            onChange={onChange}
-            onKeyDown={onKeyDown}
-            renderMark={renderMark}
+      {!value ? (
+        <SpinnerSm />
+      ) : (
+        <Limiter>
+          <Toolbar
+            handleMarkClick={onMarkClick}
+            toggleFont={toggleFont}
+            font={font}
+            handleSave={saveDocument}
           />
-        </EditorWrapper>
-      </Limiter>
+          <EditorWrapper font={font}>
+            <Editor
+              value={value}
+              onChange={onChange}
+              onKeyDown={onKeyDown}
+              renderMark={renderMark}
+            />
+          </EditorWrapper>
+        </Limiter>
+      )}
     </Wrapper>
   );
 };

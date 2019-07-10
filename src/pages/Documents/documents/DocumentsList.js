@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import {
   DocsList,
@@ -8,24 +8,46 @@ import {
   DeleteBtn,
   Warning
 } from './DocumentsList.styles';
+import {
+  useDocumentsState,
+  useDocumentsDispatch
+} from '../../../context/documentsContext';
 import SpinnerSm from '../../../components/Spinner/SpinnerSm';
 
+const categoryColors = {
+  WORK: '#a30402',
+  HOBBY: '#47990c',
+  STUDY: '#0779b3',
+  TRAVEL: '#edd100',
+  FINANCE: '#990c90'
+};
+
 const DocumentsList = () => {
-  const [documents, setDocuments] = useState(null);
+  const dispatch = useDocumentsDispatch();
+  const { documents } = useDocumentsState();
 
   useEffect(() => {
-    const fetchDocuments = async () => {
-      try {
-        const { data } = await axios.get('/documents');
-        setDocuments(data);
-      } catch (err) {
-        console.log(err.response.data);
-      }
-    };
     fetchDocuments();
   }, []);
 
-  // this.props.location.query
+  const fetchDocuments = async () => {
+    try {
+      const { data } = await axios.get('/documents');
+      dispatch({ type: 'GET_DOCUMENTS', payload: data });
+    } catch (err) {
+      console.log(err.response.data);
+    }
+  };
+
+  const deleteDocument = async id => {
+    try {
+      await axios.delete(`/documents/${id}`);
+      fetchDocuments();
+    } catch (err) {
+      console.log(err.response.data);
+    }
+  };
+
   if (!documents) return <SpinnerSm />;
 
   return (
@@ -34,35 +56,13 @@ const DocumentsList = () => {
         <Warning>No documents added yet.</Warning>
       ) : (
         <DocsList>
-          <DocItem>
-            <Category color="#cf3e00" />
-            <DocTitle to="/editor/1">Test title for document</DocTitle>
-            <DeleteBtn>X</DeleteBtn>
-          </DocItem>
-          <DocItem>
-            <Category color="#ede028" />
-            <DocTitle to="/editor/1">Test title for document</DocTitle>
-          </DocItem>
-          <DocItem>
-            <Category color="#4269f5" />
-            <DocTitle to="/editor/1">Test title for document</DocTitle>
-          </DocItem>
-          <DocItem>
-            <Category color="#4269f5" />
-            <DocTitle to="/editor/1">Test title for document</DocTitle>
-          </DocItem>
-          <DocItem>
-            <Category color="#4269f5" />
-            <DocTitle to="/editor/1">Test title for document</DocTitle>
-          </DocItem>
-          <DocItem>
-            <Category color="#4269f5" />
-            <DocTitle to="/editor/1">Test title for document</DocTitle>
-          </DocItem>
-          <DocItem>
-            <Category color="#4269f5" />
-            <DocTitle to="/editor/1">Test title for document</DocTitle>
-          </DocItem>
+          {documents.map(({ id, title, category }) => (
+            <DocItem key={id}>
+              <Category color={categoryColors[category]} />
+              <DocTitle to={`/editor/${id}`}>{title}</DocTitle>
+              <DeleteBtn onClick={() => deleteDocument(id)}>X</DeleteBtn>
+            </DocItem>
+          ))}
         </DocsList>
       )}
     </>

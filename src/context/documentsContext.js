@@ -4,22 +4,19 @@ const DocumentsStateContext = createContext();
 const DocumentsDispatchContext = createContext();
 
 const initState = {
-  document: null,
   documents: null
 };
 
 const documentsReducer = (state, { type, payload }) => {
   switch (type) {
-    case 'GET_DOCUMENT':
-      return {
-        ...state,
-        document: payload
-      };
-
     case 'GET_DOCUMENTS':
       return {
-        ...state,
         documents: payload
+      };
+
+    case 'ADD_DOCUMENT':
+      return {
+        documents: [...state.documents, payload]
       };
 
     default: {

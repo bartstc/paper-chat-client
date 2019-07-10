@@ -24,7 +24,7 @@ const AuthApp = () => (
                     path="/editor/:id"
                     render={routeProps => (
                       <Page>
-                        <Editor />
+                        <Editor {...routeProps} />
                       </Page>
                     )}
                   />
