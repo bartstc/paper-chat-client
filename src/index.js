@@ -17,6 +17,7 @@ const Index = () => {
         {isAuth === null && <Spinner />}
         {isAuth === false && <UnauthApp />}
         {isAuth && <AuthApp />}
+        {/* {isAuth ? <AuthApp /> : <UnauthApp />} */}
       </Suspense>
     </>
   );

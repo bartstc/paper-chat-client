@@ -29,17 +29,32 @@ const Home = () => {
         <Link to="/signup">Sign up for free</Link>
         <SocialMedia>
           <SocialItem>
-            <SocialLink href="https://aboutme.google.com/">
+            <SocialLink
+              href="https://aboutme.google.com/"
+              aria-label="Google plus"
+              target="_blank"
+              rel="noopener"
+            >
               <i className="fab fa-google-plus-g" />
             </SocialLink>
           </SocialItem>
           <SocialItem>
-            <SocialLink href="https://twitter.com/">
+            <SocialLink
+              href="https://twitter.com/"
+              aria-label="Twitter"
+              target="_blank"
+              rel="noopener"
+            >
               <i className="fab fa-twitter" />
             </SocialLink>
           </SocialItem>
           <SocialItem>
-            <SocialLink href="https://www.facebook.com/">
+            <SocialLink
+              href="https://www.facebook.com/"
+              aria-label="Facebook"
+              target="_blank"
+              rel="noopener"
+            >
               <i className="fab fa-facebook-f" />
             </SocialLink>
           </SocialItem>

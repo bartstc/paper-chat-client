@@ -28,6 +28,7 @@ export const Select = styled.select`
   color: ${color.grey};
   outline-color: ${color.accent};
   border-radius: 8px;
+  background: ${color.white};
 `;
 
 export const Option = styled.option`

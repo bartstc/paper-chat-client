@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
 import { useToggle } from '../../hooks/useToggle';
 import {
@@ -10,6 +9,7 @@ import {
   Logout
 } from './Layout.styles';
 import { useAuthState, useAuthDispatch } from '../../context/authContext';
+import { setToken } from '../../utils/setToken';
 
 import Header from './layout/Header';
 
@@ -45,7 +45,8 @@ const Layout = ({ children }) => {
   const onClose = () => setToggle(false);
 
   const onLogout = async () => {
-    await axios.post('/auth/logout');
+    localStorage.removeItem('jwtToken');
+    setToken(); // clear axios headers
     dispatch({ type: 'LOGOUT_USER' });
   };
 

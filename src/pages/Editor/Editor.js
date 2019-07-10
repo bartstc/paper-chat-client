@@ -11,7 +11,9 @@ import {
   EditorWrapper,
   Limiter
 } from './Editor.styles';
+
 import Toolbar from './editor/Toolbar';
+import SpinnerSm from '../../components/Spinner/SpinnerSm';
 
 const fonts = ['Lato', 'Poppins', 'Montserrat'];
 
@@ -157,6 +159,7 @@ const TextEditor = () => {
 
   return (
     <Wrapper>
+      {/* <SpinnerSm /> */}
       <Limiter>
         <Toolbar
           handleMarkClick={onMarkClick}

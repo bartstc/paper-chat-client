@@ -18,7 +18,7 @@ const Header = ({ onToggle, toggled }) => (
         Paper <span>Chat</span>
       </LogoTitle>
     </Logo>
-    <Hamburger onClick={onToggle}>
+    <Hamburger aria-label="open menu" title="Menu" onClick={onToggle}>
       <Bar toggled={toggled} />
       <Bar toggled={toggled} />
       <Bar toggled={toggled} />

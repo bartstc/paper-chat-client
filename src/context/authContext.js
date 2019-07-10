@@ -1,5 +1,7 @@
-import axios from 'axios';
 import React, { createContext, useReducer, useContext, useEffect } from 'react';
+import axios from 'axios';
+import jwt_decode from 'jwt-decode';
+import { setToken } from '../utils/setToken';
 
 const AuthStateContext = createContext();
 const AuthDispatchContext = createContext();
@@ -19,7 +21,13 @@ const authReducer = (state, { type, payload }) => {
 
     case 'LOGOUT_USER':
       return {
-        ...initState,
+        isAuth: false,
+        username: null
+      };
+
+    case 'SET_UNAUTH':
+      return {
+        ...state,
         isAuth: false
       };
 
@@ -33,8 +41,24 @@ const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initState);
 
   useEffect(() => {
-    getCurrentUser();
-  }, []);
+    if (localStorage.jwtToken) {
+      // Set axios headers
+      setHeaders(localStorage.jwtToken);
+      // Get current user data
+      getCurrentUser();
+
+      const decoded = jwt_decode(localStorage.jwtToken);
+      const currentTime = Date.now() / 1000;
+      if (decoded.exp < currentTime) {
+        // Logout user
+        dispatch({ type: 'LOGOUT_USER' });
+        // Redirect to signin
+        window.location.href = '/signin';
+      }
+    } else dispatch({ type: 'SET_UNAUTH' });
+  }, [state.isAuth]);
+
+  const setHeaders = async token => await setToken(token);
 
   const getCurrentUser = async () => {
     try {
