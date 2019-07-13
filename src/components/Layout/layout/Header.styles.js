@@ -44,6 +44,8 @@ export const LogoTitle = styled.h1`
   }
 `;
 
+export const Nav = styled.nav``;
+
 export const Bar = styled.span`
   position: absolute;
   display: block;

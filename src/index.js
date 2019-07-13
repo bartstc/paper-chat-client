@@ -7,7 +7,7 @@ import Spinner from './components/Spinner/Spinner';
 const AuthApp = lazy(() => import('./AuthApp'));
 const UnauthApp = lazy(() => import('./UnauthApp'));
 
-const Index = () => {
+export const Index = () => {
   const { isAuth } = useAuthState();
 
   return (

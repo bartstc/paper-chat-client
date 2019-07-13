@@ -5,6 +5,7 @@ import {
   Logo,
   LogoImage,
   LogoTitle,
+  Nav,
   Hamburger,
   Bar
 } from './Header.styles';
@@ -18,12 +19,14 @@ const Header = ({ onToggle, toggled }) => (
         Paper <span>Chat</span>
       </LogoTitle>
     </Logo>
-    <Hamburger aria-label="open menu" title="Menu" onClick={onToggle}>
-      <Bar toggled={toggled} />
-      <Bar toggled={toggled} />
-      <Bar toggled={toggled} />
-      <Bar toggled={toggled} />
-    </Hamburger>
+    <Nav>
+      <Hamburger aria-label="open menu" title="Menu" onClick={onToggle}>
+        <Bar toggled={toggled} />
+        <Bar toggled={toggled} />
+        <Bar toggled={toggled} />
+        <Bar toggled={toggled} />
+      </Hamburger>
+    </Nav>
   </HeaderWrapper>
 );
 

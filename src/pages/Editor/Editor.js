@@ -19,17 +19,18 @@ const fonts = ['Lato', 'Poppins', 'Montserrat'];
 
 const TextEditor = props => {
   useEffect(() => {
-    const fetchDocument = async () => {
-      try {
-        const { data } = await axios.get(`/documents/${props.match.params.id}`);
-        const text = JSON.parse(data.text);
-        setValue(Value.fromJSON(text));
-      } catch (err) {
-        console.log(err);
-      }
-    };
     fetchDocument();
   }, []);
+
+  const fetchDocument = async () => {
+    try {
+      const { data } = await axios.get(`/documents/${props.match.params.id}`);
+      const text = JSON.parse(data.text);
+      setValue(Value.fromJSON(text));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const [value, setValue] = useState(null);
   const [font, setFont] = useState('Lato');

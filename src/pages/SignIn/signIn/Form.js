@@ -19,7 +19,11 @@ const Form = ({ history }) => {
   const [show, setShow] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
 
-  const { handleChange, handleSubmit, reset, values } = useForm(async () => {
+  const { handleChange, handleSubmit, reset, values } = useForm(() => {
+    onSubmit();
+  }, initState);
+
+  const onSubmit = async () => {
     try {
       const { data } = await axios.post('/auth/signin', values);
       localStorage.setItem('jwtToken', data.token);
@@ -31,7 +35,7 @@ const Form = ({ history }) => {
       handlePopup();
       setErrorMsg(err.response.data.message);
     }
-  }, initState);
+  };
 
   const handlePopup = () => {
     setShow(true);

@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> renders correctly 1`] = `
+<Button
+  btnType="btn"
+  type="button"
+>
+  <styled.button
+    className="btn"
+    type="button"
+  >
+    <StyledComponent
+      className="btn"
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": true,
+            "lastClassName": "bCIpgJ",
+            "rules": Array [
+              "
+  width: 100%;
+  border: 2px solid ",
+              "#0075C4",
+              ";
+  background: ",
+              "#0075C4",
+              ";
+  color: ",
+              "#FFF",
+              ";
+  padding: 0.8em 1.9em;
+  margin-top: 2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+
+  &:hover {
+    background: ",
+              "#FFF",
+              ";
+    color: ",
+              "#0075C4",
+              ";
+  }
+",
+            ],
+          },
+          "displayName": "styled.button",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "button",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+      type="button"
+    >
+      <button
+        className="btn sc-bdVaJa bCIpgJ"
+        type="button"
+      />
+    </StyledComponent>
+  </styled.button>
+</Button>
+`;

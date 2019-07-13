@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextInputField /> renders correctly 1`] = `
+<TextInputField
+  id="username"
+  label="Enter username"
+  name="username"
+  onChange={[MockFunction]}
+  placeholder="username"
+  type="text"
+  value="John Doe"
+>
+  <styled.label
+    htmlFor="username"
+  >
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": true,
+            "lastClassName": "EdmCa",
+            "rules": Array [
+              "
+  font-size: 0.9rem;
+  color: ",
+              "#0075C4",
+              ";
+  font-weight: 300;
+  margin-bottom: 0.4em;
+  width: 100%;
+  margin-top: 1.5em;
+",
+            ],
+          },
+          "displayName": "styled.label",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "label",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+      htmlFor="username"
+    >
+      <label
+        className="sc-bdVaJa EdmCa"
+        htmlFor="username"
+      >
+        Enter username
+      </label>
+    </StyledComponent>
+  </styled.label>
+  <styled.input
+    id="username"
+    name="username"
+    onChange={[MockFunction]}
+    placeholder="username"
+    type="text"
+    value="John Doe"
+  >
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bwzfXH",
+            "isStatic": false,
+            "lastClassName": "UGWtj",
+            "rules": Array [
+              "
+  width: 100%;
+  height: 40px;
+  padding-left: 0.8em;
+  border: ",
+              [Function],
+              ";
+  border-radius: 8px;
+  font-size: 1rem;
+
+  &::placeholder {
+    color: #333;
+    font-size: 1rem;
+  }
+",
+            ],
+          },
+          "displayName": "styled.input",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bwzfXH",
+          "target": "input",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+      id="username"
+      name="username"
+      onChange={[MockFunction]}
+      placeholder="username"
+      type="text"
+      value="John Doe"
+    >
+      <input
+        className="sc-bwzfXH UGWtj"
+        id="username"
+        name="username"
+        onChange={[MockFunction]}
+        placeholder="username"
+        type="text"
+        value="John Doe"
+      />
+    </StyledComponent>
+  </styled.input>
+</TextInputField>
+`;
