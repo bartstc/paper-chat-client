@@ -25,12 +25,6 @@ const authReducer = (state, { type, payload }) => {
         username: null
       };
 
-    case 'SET_UNAUTH':
-      return {
-        ...state,
-        isAuth: false
-      };
-
     default: {
       throw new Error(`Unhandled action type: ${type}`);
     }
@@ -42,11 +36,6 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (localStorage.jwtToken) {
-      // Set axios headers
-      setHeaders(localStorage.jwtToken);
-      // Get current user data
-      getCurrentUser();
-
       const decoded = jwt_decode(localStorage.jwtToken);
       const currentTime = Date.now() / 1000;
       if (decoded.exp < currentTime) {
@@ -56,8 +45,13 @@ const AuthProvider = ({ children }) => {
         setHeaders();
         // Redirect to signin
         window.location.href = '/signin';
+      } else {
+        // Set axios headers
+        setHeaders(localStorage.jwtToken);
+        // Get current user data
+        getCurrentUser();
       }
-    } else dispatch({ type: 'SET_UNAUTH' });
+    } else dispatch({ type: 'LOGOUT_USER' });
   }, [state.isAuth]);
 
   const setHeaders = async token => await setToken(token);
