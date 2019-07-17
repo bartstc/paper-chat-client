@@ -4,19 +4,36 @@ const DocumentsStateContext = createContext();
 const DocumentsDispatchContext = createContext();
 
 const initState = {
-  documents: null
+  documents: null,
+  loading: false
 };
 
 const documentsReducer = (state, { type, payload }) => {
   switch (type) {
     case 'GET_DOCUMENTS':
       return {
-        documents: payload
+        ...state,
+        documents: payload,
+        loading: false
       };
 
     case 'ADD_DOCUMENT':
       return {
-        documents: [...state.documents, payload]
+        ...state,
+        documents: [...state.documents, payload],
+        loading: false
+      };
+
+    case 'LOADING_START':
+      return {
+        ...state,
+        loading: true
+      };
+
+    case 'LOADING_END':
+      return {
+        ...state,
+        loading: false
       };
 
     default: {

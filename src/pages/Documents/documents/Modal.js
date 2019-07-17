@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Backdrop, ModalWrapper, Form, FormTitle } from './Modal.styles';
@@ -9,6 +9,7 @@ import { useDocumentsDispatch } from '../../../context/documentsContext';
 import TextInputField from '../../../components/TextInputField/TextInputField';
 import SelectListField from '../../../components/SelectListField/SelectListField';
 import Button from '../../../components/Button/Button';
+import Popup from '../../../components/Popup/Popup';
 
 const categories = [
   { label: 'WORK', value: 'WORK' },
@@ -26,24 +27,37 @@ const initState = {
 
 const Modal = ({ closeModal, show }) => {
   const dispatch = useDocumentsDispatch();
+  const [showPopup, setShowPopup] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(null);
 
   const { handleChange, handleSubmit, reset, values } = useForm(e => {
     addDocument(values);
+    if (values.title !== '') closeModal();
     reset();
-    closeModal();
   }, initState);
 
   const addDocument = async () => {
     try {
+      dispatch({ type: 'LOADING_START' });
       const { data } = await axios.post('/documents', values);
       dispatch({ type: 'ADD_DOCUMENT', payload: data });
     } catch (err) {
-      console.log(err.response.data);
+      handlePopup();
+      setErrorMsg(err.response.data.message);
+      dispatch({ type: 'LOADING_END' });
     }
+  };
+
+  const handlePopup = () => {
+    setShowPopup(true);
+    setTimeout(() => {
+      setShowPopup(false);
+    }, 3000);
   };
 
   return (
     <>
+      <Popup show={showPopup} message={errorMsg} />
       <Backdrop show={show} onClick={closeModal} />
       <ModalWrapper show={show}>
         <Form onSubmit={handleSubmit}>

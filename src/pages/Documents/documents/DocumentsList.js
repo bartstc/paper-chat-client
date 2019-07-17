@@ -24,7 +24,7 @@ const categoryColors = {
 
 const DocumentsList = () => {
   const dispatch = useDocumentsDispatch();
-  const { documents } = useDocumentsState();
+  const { documents, loading } = useDocumentsState();
 
   useEffect(() => {
     fetchDocuments();
@@ -41,6 +41,7 @@ const DocumentsList = () => {
 
   const deleteDocument = async id => {
     try {
+      dispatch({ type: 'LOADING_START' });
       await axios.delete(`/documents/${id}`);
       fetchDocuments();
     } catch (err) {
@@ -48,7 +49,7 @@ const DocumentsList = () => {
     }
   };
 
-  if (!documents) return <SpinnerSm />;
+  if (!documents || loading) return <SpinnerSm />;
 
   return (
     <>
