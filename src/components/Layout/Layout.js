@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import { useToggle } from '../../hooks/useToggle';
 import {
   LayoutWrapper,
@@ -35,7 +36,7 @@ const unauthLinks = [
   }
 ];
 
-const Layout = ({ children }) => {
+const Layout = ({ children, history }) => {
   const { isAuth } = useAuthState();
   const dispatch = useAuthDispatch();
   const [toggle, setToggle] = useToggle();
@@ -48,6 +49,7 @@ const Layout = ({ children }) => {
     localStorage.removeItem('jwtToken');
     setToken(); // clear axios headers
     dispatch({ type: 'LOGOUT_USER' });
+    history.push('/');
   };
 
   return (
@@ -78,4 +80,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-export default Layout;
+export default withRouter(Layout);
