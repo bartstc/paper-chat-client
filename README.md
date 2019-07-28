@@ -18,6 +18,7 @@ Server side code for this project:
 * [JSON Web Token](https://jwt.io/) for auth
 * [TypeORM](https://typeorm.io/#/) ORM
 * [PostgreSQL](https://www.postgresql.org/) database
+* [Docker](https://www.docker.com/)
 
 ## Project Learning Goals
 
@@ -25,6 +26,11 @@ Server side code for this project:
 * Try Slate.js library
 * Try Nest.js framework
 * Try Node.js and Express with TypeScript
+* Try Docker
+
+## Preview
+
+[Paper Chat](https://radiant-taiga-70232.herokuapp.com/)
 
 ## License
 
