@@ -1,0 +1,439 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DocumentsList /> renders correctly 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <DocumentsProvider>
+      <DocumentsList>
+        <styled.ul>
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-bwzfXH",
+                  "isStatic": true,
+                  "lastClassName": "uTxCW",
+                  "rules": Array [],
+                },
+                "displayName": "styled.ul",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-bwzfXH",
+                "target": "ul",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+          >
+            <ul
+              className="sc-bwzfXH uTxCW"
+            >
+              <DocumentItem
+                category="WORK"
+                fetchDocuments={[Function]}
+                id={1}
+                key="1"
+                title="test"
+              >
+                <styled.li
+                  key="1"
+                >
+                  <StyledComponent
+                    forwardedComponent={
+                      Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": Array [],
+                        "componentStyle": ComponentStyle {
+                          "componentId": "sc-htpNat",
+                          "isStatic": true,
+                          "lastClassName": "gBJDIy",
+                          "rules": Array [
+                            "
+  position: relative;
+  margin-bottom: 0.8em;
+  height: 40px;
+  display: flex;
+  align-items: center;
+",
+                          ],
+                        },
+                        "displayName": "styled.li",
+                        "foldedComponentIds": Array [],
+                        "render": [Function],
+                        "styledComponentId": "sc-htpNat",
+                        "target": "li",
+                        "toString": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                      }
+                    }
+                    forwardedRef={null}
+                  >
+                    <li
+                      className="sc-htpNat gBJDIy"
+                    >
+                      <styled.span
+                        color="#a30402"
+                      >
+                        <StyledComponent
+                          color="#a30402"
+                          forwardedComponent={
+                            Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "attrs": Array [],
+                              "componentStyle": ComponentStyle {
+                                "componentId": "sc-bxivhb",
+                                "isStatic": false,
+                                "lastClassName": "koEcDi",
+                                "rules": Array [
+                                  "
+  display: block;
+  height: 21px;
+  width: 45px;
+  background: ",
+                                  [Function],
+                                  ";
+",
+                                ],
+                              },
+                              "displayName": "styled.span",
+                              "foldedComponentIds": Array [],
+                              "render": [Function],
+                              "styledComponentId": "sc-bxivhb",
+                              "target": "span",
+                              "toString": [Function],
+                              "warnTooManyClasses": [Function],
+                              "withComponent": [Function],
+                            }
+                          }
+                          forwardedRef={null}
+                        >
+                          <span
+                            className="sc-bxivhb dGCwnE"
+                            color="#a30402"
+                          />
+                        </StyledComponent>
+                      </styled.span>
+                      <Styled(Link)
+                        to="/editor/1"
+                      >
+                        <StyledComponent
+                          forwardedComponent={
+                            Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "attrs": Array [],
+                              "componentStyle": ComponentStyle {
+                                "componentId": "sc-ifAKCX",
+                                "isStatic": true,
+                                "lastClassName": "sLouT",
+                                "rules": Array [
+                                  "
+  padding: 0 1.4em 0 0.8em;
+",
+                                ],
+                              },
+                              "displayName": "Styled(Link)",
+                              "foldedComponentIds": Array [],
+                              "render": [Function],
+                              "styledComponentId": "sc-ifAKCX",
+                              "target": [Function],
+                              "toString": [Function],
+                              "warnTooManyClasses": [Function],
+                              "withComponent": [Function],
+                            }
+                          }
+                          forwardedRef={null}
+                          to="/editor/1"
+                        >
+                          <Link
+                            className="sc-ifAKCX sLouT"
+                            to="/editor/1"
+                          >
+                            <a
+                              className="sc-ifAKCX sLouT"
+                              href="/editor/1"
+                              onClick={[Function]}
+                            >
+                              test
+                            </a>
+                          </Link>
+                        </StyledComponent>
+                      </Styled(Link)>
+                      <styled.button
+                        onClick={[Function]}
+                      >
+                        <StyledComponent
+                          forwardedComponent={
+                            Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "attrs": Array [],
+                              "componentStyle": ComponentStyle {
+                                "componentId": "sc-EHOje",
+                                "isStatic": true,
+                                "lastClassName": "fFlAGJ",
+                                "rules": Array [
+                                  "
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  border: none;
+  color: ",
+                                  "#FFF",
+                                  ";
+  font-weight: ",
+                                  "700",
+                                  ";
+  font-size: 0.85rem;
+  background: #a10000;
+  cursor: pointer;
+",
+                                ],
+                              },
+                              "displayName": "styled.button",
+                              "foldedComponentIds": Array [],
+                              "render": [Function],
+                              "styledComponentId": "sc-EHOje",
+                              "target": "button",
+                              "toString": [Function],
+                              "warnTooManyClasses": [Function],
+                              "withComponent": [Function],
+                            }
+                          }
+                          forwardedRef={null}
+                          onClick={[Function]}
+                        >
+                          <button
+                            className="sc-EHOje fFlAGJ"
+                            onClick={[Function]}
+                          >
+                            X
+                          </button>
+                        </StyledComponent>
+                      </styled.button>
+                    </li>
+                  </StyledComponent>
+                </styled.li>
+              </DocumentItem>
+              <DocumentItem
+                category="HOBBY"
+                fetchDocuments={[Function]}
+                id={2}
+                key="2"
+                title="test2"
+              >
+                <styled.li
+                  key="2"
+                >
+                  <StyledComponent
+                    forwardedComponent={
+                      Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": Array [],
+                        "componentStyle": ComponentStyle {
+                          "componentId": "sc-htpNat",
+                          "isStatic": true,
+                          "lastClassName": "gBJDIy",
+                          "rules": Array [
+                            "
+  position: relative;
+  margin-bottom: 0.8em;
+  height: 40px;
+  display: flex;
+  align-items: center;
+",
+                          ],
+                        },
+                        "displayName": "styled.li",
+                        "foldedComponentIds": Array [],
+                        "render": [Function],
+                        "styledComponentId": "sc-htpNat",
+                        "target": "li",
+                        "toString": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                      }
+                    }
+                    forwardedRef={null}
+                  >
+                    <li
+                      className="sc-htpNat gBJDIy"
+                    >
+                      <styled.span
+                        color="#47990c"
+                      >
+                        <StyledComponent
+                          color="#47990c"
+                          forwardedComponent={
+                            Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "attrs": Array [],
+                              "componentStyle": ComponentStyle {
+                                "componentId": "sc-bxivhb",
+                                "isStatic": false,
+                                "lastClassName": "koEcDi",
+                                "rules": Array [
+                                  "
+  display: block;
+  height: 21px;
+  width: 45px;
+  background: ",
+                                  [Function],
+                                  ";
+",
+                                ],
+                              },
+                              "displayName": "styled.span",
+                              "foldedComponentIds": Array [],
+                              "render": [Function],
+                              "styledComponentId": "sc-bxivhb",
+                              "target": "span",
+                              "toString": [Function],
+                              "warnTooManyClasses": [Function],
+                              "withComponent": [Function],
+                            }
+                          }
+                          forwardedRef={null}
+                        >
+                          <span
+                            className="sc-bxivhb koEcDi"
+                            color="#47990c"
+                          />
+                        </StyledComponent>
+                      </styled.span>
+                      <Styled(Link)
+                        to="/editor/2"
+                      >
+                        <StyledComponent
+                          forwardedComponent={
+                            Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "attrs": Array [],
+                              "componentStyle": ComponentStyle {
+                                "componentId": "sc-ifAKCX",
+                                "isStatic": true,
+                                "lastClassName": "sLouT",
+                                "rules": Array [
+                                  "
+  padding: 0 1.4em 0 0.8em;
+",
+                                ],
+                              },
+                              "displayName": "Styled(Link)",
+                              "foldedComponentIds": Array [],
+                              "render": [Function],
+                              "styledComponentId": "sc-ifAKCX",
+                              "target": [Function],
+                              "toString": [Function],
+                              "warnTooManyClasses": [Function],
+                              "withComponent": [Function],
+                            }
+                          }
+                          forwardedRef={null}
+                          to="/editor/2"
+                        >
+                          <Link
+                            className="sc-ifAKCX sLouT"
+                            to="/editor/2"
+                          >
+                            <a
+                              className="sc-ifAKCX sLouT"
+                              href="/editor/2"
+                              onClick={[Function]}
+                            >
+                              test2
+                            </a>
+                          </Link>
+                        </StyledComponent>
+                      </Styled(Link)>
+                      <styled.button
+                        onClick={[Function]}
+                      >
+                        <StyledComponent
+                          forwardedComponent={
+                            Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "attrs": Array [],
+                              "componentStyle": ComponentStyle {
+                                "componentId": "sc-EHOje",
+                                "isStatic": true,
+                                "lastClassName": "fFlAGJ",
+                                "rules": Array [
+                                  "
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  border: none;
+  color: ",
+                                  "#FFF",
+                                  ";
+  font-weight: ",
+                                  "700",
+                                  ";
+  font-size: 0.85rem;
+  background: #a10000;
+  cursor: pointer;
+",
+                                ],
+                              },
+                              "displayName": "styled.button",
+                              "foldedComponentIds": Array [],
+                              "render": [Function],
+                              "styledComponentId": "sc-EHOje",
+                              "target": "button",
+                              "toString": [Function],
+                              "warnTooManyClasses": [Function],
+                              "withComponent": [Function],
+                            }
+                          }
+                          forwardedRef={null}
+                          onClick={[Function]}
+                        >
+                          <button
+                            className="sc-EHOje fFlAGJ"
+                            onClick={[Function]}
+                          >
+                            X
+                          </button>
+                        </StyledComponent>
+                      </styled.button>
+                    </li>
+                  </StyledComponent>
+                </styled.li>
+              </DocumentItem>
+            </ul>
+          </StyledComponent>
+        </styled.ul>
+      </DocumentsList>
+    </DocumentsProvider>
+  </Router>
+</BrowserRouter>
+`;

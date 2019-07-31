@@ -1,7 +1,7 @@
 import React, { createContext, useReducer, useContext } from 'react';
 
-const DocumentsStateContext = createContext();
-const DocumentsDispatchContext = createContext();
+export const DocumentsStateContext = createContext();
+export const DocumentsDispatchContext = createContext();
 
 const initState = {
   documents: null,
@@ -57,14 +57,18 @@ const DocumentsProvider = ({ children }) => {
 const useDocumentsState = () => {
   const state = useContext(DocumentsStateContext);
   if (state === undefined)
-    throw new Error('useDocumentsState must be used within a AuthProvider');
+    throw new Error(
+      'useDocumentsState must be used within a DocumentsProvider'
+    );
   return state;
 };
 
 const useDocumentsDispatch = () => {
   const dispatch = useContext(DocumentsDispatchContext);
   if (dispatch === undefined)
-    throw new Error('useDocumentsDispatch must be used within a AuthProvider');
+    throw new Error(
+      'useDocumentsDispatch must be used within a DocumentsProvider'
+    );
   return dispatch;
 };
 
