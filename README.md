@@ -3,8 +3,7 @@
 Fullstack app written in React, Express and TypeScript (backend). The application uses the Slate.js library to create a rich text editor. You can add, save, update and read documents. For now, the project is not finished, the end result is to be able to edit documents by many users live (simple google docks clone).
 
 Server side code for this project:  
-[Node.js, Express, Typescript](https://github.com/bartstc/paper-chat-server-typescript)  
-[Node.js, Nest.js](https://github.com/bartstc/paper-chat-server-nestjs)
+[Node.js, Express, Typescript](https://github.com/bartstc/paper-chat-server-typescript)
 
 ![paper-chat](https://user-images.githubusercontent.com/42715741/61172198-5fe94c80-a581-11e9-9051-4ffe16294631.png)
 
